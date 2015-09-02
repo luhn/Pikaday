@@ -16,11 +16,12 @@
         module.exports = factory(moment);
     } else if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(function (req)
+        define(function (require)
         {
             // Load moment.js as an optional dependency
-            var id = 'moment';
-            try { moment = req(id); } catch (e) {}
+            try {
+              moment = require('moment');
+            } catch (e) {}
             return factory(moment);
         });
     } else {
